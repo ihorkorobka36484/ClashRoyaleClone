@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b305194677c6df642a7effe4acdd3e6b, type: 3}
+  m_Name: UnitButtonReferences
+  m_EditorClassIdentifier: 
+  unitTypes:
+  - {fileID: -3097958103367793821, guid: 391a642033c5e634dab2ab25434f1e57, type: 3}
+  - {fileID: 6302694674362624318, guid: b5813654b784855468d9767bef561ac2, type: 3}
+  - {fileID: 345719639570813046, guid: d447a58d7798b414ca462105208c9072, type: 3}
+  - {fileID: 880772275919571930, guid: 6cda68b015ef5824eb3b0e439cdf476c, type: 3}
+  textures:
+  - {fileID: 2800000, guid: bbdb779f7759b6942ac33858e5526b5e, type: 3}
+  - {fileID: 2800000, guid: d14af460c37a79f49939088ad0f16e1e, type: 3}
+  - {fileID: 2800000, guid: 6e791a2872505db4b8520caae370fac1, type: 3}
+  - {fileID: 2800000, guid: 636165b095a4dd144bd550f74956b868, type: 3}
