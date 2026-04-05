@@ -20,9 +20,9 @@ namespace Units{
     
     public enum Size
     {
-        Big = 3,
-        Medium = 2,
-        Small = 1,
+        Big,
+        Medium,
+        Small
     }
     
     public enum Type
