@@ -55,6 +55,7 @@ namespace Units
                 Vector2 flowDir = field.GetSmoothedFlowDirection(unit.transform.position);
                 Vector3 moveDirection = new Vector3(flowDir.x, 0, flowDir.y);
                 Rigidbody unitRB = unit.GetComponent<Rigidbody>();
+                print("velocity: " + moveDirection * moveSpeed);
                 unitRB.velocity = moveDirection * moveSpeed;
             }
         }

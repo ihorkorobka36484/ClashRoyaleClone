@@ -15,7 +15,7 @@ MonoBehaviour:
   maxHealth: 10000
   attack: 20
   cost: 2
-  attackRange: 4
+  attackRange: 3
   attackNoticeRange: 15
   attackRate: 2
-  size: 1
+  size: 2

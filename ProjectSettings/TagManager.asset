@@ -22,9 +22,9 @@ TagManager:
   - Units
   - PostProcessing
   - AttackingUnits
-  - Impassable
-  - RoughTerrain
-  - 
+  - PathfindingImpassable
+  - PathfindingRoughTerrain
+  - PathfindingUnit
   - 
   - 
   - 

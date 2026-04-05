@@ -59,7 +59,7 @@ public class FlowField
     public void CreateCostField()
     {
         Vector3 cellHalfExtents = Vector3.one * cellRadius;
-        int terrainMask = LayerMask.GetMask("Impassable", /*"RoughTerrain", */"AttackingUnits");
+        int terrainMask = LayerMask.GetMask("PathfindingImpassable", "PathfindingRoughTerrain", "PathfindingUnit");
         foreach (Cell curCell in grid)
         {
             curCell.ResetCosts();
@@ -68,16 +68,17 @@ public class FlowField
             {
                 if (objectsToIgnore.Contains(col.gameObject)) continue;
 
-                if (col.gameObject.layer == LayerMask.NameToLayer("Impassable"))
+                if (col.gameObject.layer == LayerMask.NameToLayer("PathfindingImpassable"))
                 {
                     curCell.IncreaseCost(255);
                     continue;
                 }
-                // else if (!hasIncreasedCost && col.gameObject.layer == LayerMask.NameToLayer("RoughTerrain"))
-                // {
-                //     curCell.IncreaseCost(3);
-                //     hasIncreasedCost = true;
-                else if (col.gameObject.layer == LayerMask.NameToLayer("AttackingUnits"))
+                else if (col.gameObject.layer == LayerMask.NameToLayer("PathfindingRoughTerrain"))
+                {
+                    curCell.IncreaseCost(70);
+                    continue;
+                }
+                else if (col.gameObject.layer == LayerMask.NameToLayer("PathfindingUnit"))
                 {
                     curCell.IncreaseCost(30);
                 }

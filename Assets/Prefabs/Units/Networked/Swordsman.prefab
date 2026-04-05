@@ -1,5 +1,60 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &760868256299271104
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1411980448263801091}
+  - component: {fileID: 7408141538498349018}
+  m_Layer: 15
+  m_Name: PathfindingCollider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1411980448263801091
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760868256299271104}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.99, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7722257251997438091}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!136 &7408141538498349018
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 760868256299271104}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 2.34
+  m_Height: 4.66
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3926819761456522989
 GameObject:
   m_ObjectHideFlags: 0
@@ -4378,7 +4433,6 @@ GameObject:
   - component: {fileID: 7722257251997438091}
   - component: {fileID: 1788530344015487941}
   - component: {fileID: 998259124854388698}
-  - component: {fileID: 1977638276369297896}
   - component: {fileID: 1444915214343109063}
   - component: {fileID: 8485735915432290042}
   - component: {fileID: 8042262236105613969}
@@ -4393,7 +4447,7 @@ GameObject:
   - component: {fileID: -6870460007135382586}
   - component: {fileID: -311221614071471707}
   - component: {fileID: 1102806067542836091}
-  m_Layer: 10
+  m_Layer: 12
   m_Name: Swordsman
   m_TagString: Unit
   m_Icon: {fileID: 0}
@@ -4414,6 +4468,7 @@ Transform:
   m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 7413368972470742091}
+  - {fileID: 1411980448263801091}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1788530344015487941
@@ -4478,47 +4533,6 @@ MonoBehaviour:
   isTalking: 0
   rightWeapon: 0
   leftWeapon: 0
---- !u!114 &1977638276369297896
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7840963495349357989}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 22f8445ce871a9b46b22d4812ecda9b4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  knockbackMultiplier: 0
-  movementAnimationMultiplier: 1
-  currentVelocity: {x: 0, y: 0, z: 0}
-  walkSpeed: 0.5
-  walkAccel: 15
-  runSpeed: 1
-  runAccel: 30
-  sprintSpeed: 2.5
-  sprintAccel: 15
-  crawlSpeed: 0.15
-  crawlAccel: 15
-  injuredSpeed: 0.675
-  injuredAccel: 20
-  groundFriction: 120
-  rotationSpeed: 50
-  canJump: 0
-  holdingJump: 0
-  canDoubleJump: 0
-  jumpSpeed: 12
-  jumpGravity: 24
-  doubleJumpSpeed: 8
-  inAirSpeed: 8
-  inAirAccel: 16
-  fallGravity: 32
-  fallingControl: 0
-  swimSpeed: 4
-  swimAccel: 4
-  strokeSpeed: 6
-  waterFriction: 5
 --- !u!114 &1444915214343109063
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4592,14 +4606,14 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_ProvidesContacts: 0
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
-  m_Radius: 1.44
-  m_Height: 7.68
+  m_Radius: 1.08
+  m_Height: 3.52
   m_Direction: 1
-  m_Center: {x: 0, y: 3.3, z: 0}
+  m_Center: {x: 0, y: 2.49, z: 0}
 --- !u!114 &3687989883277153707
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4741,6 +4755,7 @@ MonoBehaviour:
   type: 1
   commonUnitData: {fileID: 11400000, guid: 7aaee75492567754fa689bc74206aac0, type: 2}
   forwardObstacle: {fileID: 0}
+  pathfindingCollider: {fileID: 7408141538498349018}
   indexTest: 0
   indexTestStop: -1
   swordInHand: {fileID: 3926819761456522989}

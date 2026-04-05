@@ -159,10 +159,11 @@ namespace Units {
             originalScale = Vector3.zero;
             originalDistance = float.MaxValue;
             unitPlaceArea.SetVisible(false);
-
+            
+            // TODO, Temporarily spawn units on button click, change later
             UnitSpawner.SpawnParams spawnParams = new UnitSpawner.SpawnParams(
                 overallArea.GetMouseHitPosition(),//lastHitPosition,
-                button.Unit.Type,
+                Units.Type.Swordsman,
                 true,//enteredUnitPlaceArea,
                 false,//true,
                 0);

@@ -101,6 +101,7 @@ public class GridController : MonoBehaviour
             return;
         }
         
+        centerPos.y = transform.position.y;
         FlowField localFlowField = new FlowField(cellRadius, localGridSize, centerPos);
         localFlowField.CreateGrid();
         Cell destinationCell = localFlowField.GetCellFromWorldPos(centerPos);

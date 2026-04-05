@@ -20,9 +20,9 @@ namespace Units{
     
     public enum Size
     {
-        Big,
-        Medium,
-        Small
+        Big = 3,
+        Medium = 2,
+        Small = 1,
     }
     
     public enum Type
@@ -57,6 +57,8 @@ namespace Units{
         protected CommonUnitData commonUnitData;
         [SerializeField]
         protected GameObject forwardObstacle;
+        [SerializeField]
+        protected Collider pathfindingCollider;
 
         public virtual ISpawnable Spawnable => this;
         /// <summary>
@@ -145,7 +147,7 @@ namespace Units{
             this.destination = destination;
             timePassedSinceLastAttack = data.AttackRate;
             InitNavMesh();
-            GetComponent<Collider>().enabled = true;
+            //GetComponent<Collider>().enabled = true;
 
             if (data.AttackNoticeRange < data.AttackRange)
             {
@@ -364,6 +366,7 @@ namespace Units{
             mandatoryFirstAttack = false;
             lastAttackTargetPosition = Vector3.zero;
             gameObject.layer = LayerMask.NameToLayer(nonAttackingLayer);
+            GetComponent<Collider>().isTrigger = true;
 
             if (isDead)
                 return;
@@ -381,7 +384,14 @@ namespace Units{
                 return;
 
             StartMovementAction?.Invoke(this, isMoving);
-            body.isKinematic = !isMoving;
+            //body.isKinematic = isMoving;
+            pathfindingCollider.enabled = !isMoving;
+            GetComponent<Collider>().enabled = !isMoving;
+
+            if (!isMoving)
+            {
+                body.velocity = Vector3.zero;
+            }
 
             // positionBefore = transform.position;
             // navMeshObstacle.enabled = !isMoving;
@@ -448,7 +458,7 @@ namespace Units{
             }
             OnDeath?.Invoke(this);
             transform.localRotation = Quaternion.identity;
-            GetComponent<Collider>().enabled = false;
+            //GetComponent<Collider>().enabled = false;
 
             if (rPGCharacterController != null) {
                 rPGCharacterController.EndAction("Death");
@@ -545,6 +555,7 @@ namespace Units{
 
             if (attackTarget != null && attackTargetFound)
             {
+                body.velocity = Vector3.zero;
                 timePassedSinceLastAttackTargetCheck += Time.deltaTime;
                 if (timePassedSinceLastAttackTargetCheck >= commonUnitData.CheckForAttackTargetRate && !mandatoryFirstAttack)
                 {
@@ -573,6 +584,7 @@ namespace Units{
             attackAllowed = true;
             gameObject.layer = LayerMask.NameToLayer(attackingLayer);
             timePassedSinceLastAttack += UnityEngine.Random.Range(0f, 0.1f * data.AttackRate);
+            GetComponent<Collider>().isTrigger = false;
             OnAttackStatusChanged?.Invoke(this, true);
         }
 
